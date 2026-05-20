@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Clínica Odontológica | Sorriso Perfeito</title>
+
+    <meta name="theme-color" content="#32CD32">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <style>
+        :root {
+            --verde-metalico: #32CD32;
+            --verde-escuro: #56C596;
+            --branco: #FFFFFF;
+            --cinza-texto: #2C3E50;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--cinza-texto);
+            overflow-x: hidden;
+        }
+
+        /* === HEADER HERO === */
+        #header {
+            background: var(--verde-metalico);
+            color: var(--branco);
+            padding: 60px 0 80px;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+        }
+
+        /* Imagem dentista com bordas esfumadas ESCURAS E TRANSPARENTE */
+        .img-dentista-hero {
+            position: absolute;
+            right: -30px;
+            bottom: -20px;
+            width: 35%;
+            max-width: 550px;
+            height: auto;
+            z-index: 2;
+            animation: slideLeft 1.2s ease-out 0.3s forwards;
+            opacity: 0.7; /* 70% transparente */
+            
+            /* Sombra escura pra dar o efeito esfumado preto */
+            filter: drop-shadow(-15px 0 25px rgba(0,0,0,0.6)) 
+                    drop-shadow(0 15px 25px rgba(0,0,0,0.5));
+            
+            /* Máscara forte - esfuma todos os lados */
+            -webkit-mask-image: 
+                radial-gradient(ellipse at center, black 50%, transparent 75%),
+                linear-gradient(to left, black 70%, transparent 100%),
+                linear-gradient(to bottom, black 80%, transparent 100%);
+            -webkit-mask-composite: source-in;
+            mask-image: 
+                radial-gradient(ellipse at center, black 50%, transparent 75%),
+                linear-gradient(to left, black 70%, transparent 100%),
+                linear-gradient(to bottom, black 80%, transparent 100%);
+            mask-composite: intersect;
+        }
+
+        @keyframes slideLeft {
+            from { 
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            to { 
+                transform: translateX(0);
+                opacity: 0.7; /* Mantém a transparência no final da animação */
+            }
+        }
+
+        .logo-topo {
+            max-width: 180px;
+            height: auto;
+            display: block;
+            margin: 0 auto 30px;
+            position: relative;
+            z-index: 3;
+            filter: drop-shadow(0 3px 10px rgba(0,0,0,0.25));
+            animation: fadeInUp 1s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+
+        .hero-conteudo {
+            position: relative;
+            z-index: 3;
+        }
+
+        .titulo-animado {
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--branco);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+            animation: slideRight 1.2s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes slideRight {
+            from { 
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            to { 
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .btn-whats-hero {
+            background: #25D366;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            margin-top: 25px;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to { 
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .btn-whats-hero:hover {
+            background: #1fa855;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        /* === SEÇÃO TRATAMENTOS 100% LARGURA === */
+        #tratamentos {
+            padding: 0 0 80px;
+            background: var(--branco);
+            position: relative;
+        }
+
+        .onda-topo-tratamentos {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            margin-bottom: 50px;
+        }
+
+        .onda-topo-tratamentos svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 100px;
+        }
+
+        .onda-topo-tratamentos .shape-fill {
+            fill: var(--verde-metalico);
+        }
+
+        #tratamentos h2 {
+            text-align: center;
+            font-weight: 700;
+            color: var(--verde-escuro);
+            margin-bottom: 50px;
+            font-size: 2rem;
+        }
+
+        /* CARROSSEL 100% LARGURA */
+        .carrossel-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .carrossel-container {
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            display: flex;
+            gap: 30px;
+            padding: 20px 60px;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+        }
+
+        .carrossel-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .btn-carrossel {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--verde-metalico);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+        }
+
+        .btn-carrossel:hover {
+            background: var(--verde-escuro);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .btn-carrossel.prev {
+            left: 15px;
+        }
+
+        .btn-carrossel.next {
+            right: 15px;
+        }
+
+        .card-tratamento {
+            min-width: 280px;
+            text-align: center;
+            scroll-snap-align: center;
+            padding: 20px;
+            flex-shrink: 0;
+        }
+
+        .img-tratamento {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 5px solid var(--verde-metalico);
+            box-shadow: 0 8px 25px rgba(50, 205, 50, 0.3);
+            transition: all 0.3s;
+        }
+
+        .card-tratamento:hover .img-tratamento {
+            transform: scale(1.05);
+            box-shadow: 0 12px 35px rgba(50, 205, 50, 0.5);
+        }
+
+        .card-tratamento h5 {
+            font-weight: 600;
+            color: var(--cinza-texto);
+            font-size: 1.2rem;
+        }
+
+        /* === SEÇÃO CÂMERA === */
+        #camera {
+            background: linear-gradient(135deg, #F1F8E9 0%, var(--branco) 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        #camera h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--verde-escuro);
+            margin-bottom: 20px;
+        }
+
+        #camera p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: var(--cinza-texto);
+        }
+
+        /* === FOOTER === */
+        #footer {
+            background: var(--verde-escuro);
+            color: var(--branco);
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+
+        /* === WHATS FLUTUANTE === */
+        .botao-wats-flutuante {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 999;
+            animation: pulse 2s infinite;
+        }
+
+        .botao-wats-flutuante img {
+            width: 65px;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* === MOBILE === */
+        @media only screen and (max-width: 768px) {
+            .titulo-animado { font-size: 1.6rem; }
+            .img-dentista-hero { 
+                width: 85%; 
+                opacity: 0.15; /* Mais transparente no mobile */
+                right: -50px;
+                bottom: -40px;
+                filter: drop-shadow(-10px 0 20px rgba(0,0,0,0.5));
+            }
+            .logo-topo { max-width: 150px; }
+            .img-tratamento { width: 140px; height: 140px; }
+            .card-tratamento { min-width: 220px; }
+            #tratamentos h2 { font-size: 1.5rem; padding: 0 15px; }
+            .onda-topo-tratamentos svg { height: 60px; }
+            .onda-topo-tratamentos { margin-bottom: 30px; }
+            #header { min-height: 450px; }
+            .carrossel-container { padding: 20px 50px; }
+            .btn-carrossel { width: 40px; height: 40px; font-size: 1rem; }
+            .btn-carrossel.prev { left: 5px; }
+            .btn-carrossel.next { right: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- WHATSAPP FLUTUANTE -->
+    <div class="botao-wats-flutuante">
+        <a href="https://wa.me/5500000000000?text=Olá%20vim%20pelo%20site%20e%20quero%20agendar%20avaliação">
+            <img src="./img/wats.png" alt="WhatsApp">
+        </a>
+    </div>
+
+    <!-- HEADER HERO -->
+    <section id="header">
+        <!-- Imagem do dentista com bordas esfumadas -->
+        <img src="./img/dentista.png" alt="Dentista" class="img-dentista-hero">
+        
+        <div class="container">
+            <!-- LOGO ATUALIZADA -->
+            <img src="./img/logo-dente.png" alt="Logo Clínica Dental" class="logo-topo">
+            
+            <div class="hero-conteudo text-center">
+                <h1 class="titulo-animado">
+                    Procurando Dentista para os mais diversos<br>tratamentos? Confie nos melhores
+                </h1>
+                
+                <a href="https://wa.me/5500000000000?text=Olá%20quero%20falar%20com%20atendente" class="btn btn-whats-hero">
+                    <i class="fab fa-whatsapp"></i> Falar com atendente
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO TRATAMENTOS 100% LARGURA -->
+    <section id="tratamentos">
+        <div class="onda-topo-tratamentos">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" class="shape-fill"></path>
+            </svg>
+        </div>
+
+        <!-- Container-fluid pra ocupar 100% -->
+        <div class="container-fluid px-0">
+            <h2>Avaliação Gratuita! Escolha sua melhor opção</h2>
+            
+            <div class="carrossel-wrapper">
+                <button class="btn-carrossel prev" id="btnPrev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="carrossel-container" id="carrosselTratamentos">
+                    <div class="card-tratamento">
+                        <img src="./img/imagem.JPG" alt="Implante" class="img-tratamento">
+                        <h5>Implante</h5>
+                    </div>
+                    
+                    <div class="card-tratamento">
+                        <img src="./img/imagem.JPG" alt="Prótese fixa sobre implante" class="img-tratamento">
+                        <h5>Prótese fixa sobre implante</h5>
+                    </div>
+
+                     <div class="card-tratamento">
+                        <img src="./img/imagem.JPG" alt="Clareamento" class="img-tratamento">
+                        <h5>Clareamento Dental</h5>
+                    </div>
+                     <div class="card-tratamento">
+                        <img src="./img/imagem.JPG" alt="Lentes" class="img-tratamento">
+                        <h5>Lentes de Contato</h5>
+                    </div>
+                     <div class="card-tratamento">
+                        <img src="./img/imagem.JPG" alt="Canal" class="img-tratamento">
+                        <h5>Tratamento de Canal</h5>
+                    </div>
+                    
+                    <div class="card-tratamento">
+                        <img src="./img/imagem.JPG" alt="Ortodontia" class="img-tratamento">
+                        <h5>Ortodontia</h5>
+                    </div>
+                </div>
+
+                <button class="btn-carrossel next" id="btnNext">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO CÂMERA -->
+    <section id="camera">
+        <div class="container">
+            <h3><i class="fas fa-video"></i> Avaliação Grátis com câmera</h3>
+            <p>Usamos câmera intraoral que revela possíveis problemas em sua boca na hora. Diagnóstico preciso e sem surpresas.</p>
+            
+            <a href="https://wa.me/5500000000000?text=Olá%20quero%20agendar%20avaliação%20grátis%20com%20câmera" class="btn btn-whats-hero">
+                <i class="fab fa-whatsapp"></i> Falar com atendente
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <section id="footer">
+        <div class="container">
+            <p style="opacity:0.9;">© 2026 Clínica Odontológica. Todos os direitos reservados.</p>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // CARROSSEL AUTOMÁTICO COM SETAS
+        const carrossel = document.getElementById('carrosselTratamentos');
+        const btnPrev = document.getElementById('btnPrev');
+        const btnNext = document.getElementById('btnNext');
+        let autoScroll;
+
+        // Função pra rolar
+        function scrollCarrossel(direction) {
+            const cardWidth = carrossel.querySelector('.card-tratamento').offsetWidth + 30; // largura + gap
+            carrossel.scrollBy({
+                left: direction * cardWidth,
+                behavior: 'smooth'
+            });
+        }
+
+        // Setas
+        btnPrev.addEventListener('click', () => {
+            scrollCarrossel(-1);
+            resetAutoScroll();
+        });
+
+        btnNext.addEventListener('click', () => {
+            scrollCarrossel(1);
+            resetAutoScroll();
+        });
+
+        // Auto scroll a cada 3 segundos
+        function startAutoScroll() {
+            autoScroll = setInterval(() => {
+                // Se chegou no final, volta pro início
+                if (carrossel.scrollLeft + carrossel.offsetWidth >= carrossel.scrollWidth - 10) {
+                    carrossel.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    scrollCarrossel(1);
+                }
+            }, 3000);
+        }
+
+        function resetAutoScroll() {
+            clearInterval(autoScroll);
+            startAutoScroll();
+        }
+
+        // Pausa quando o mouse tá em cima
+        carrossel.addEventListener('mouseenter', () => clearInterval(autoScroll));
+        carrossel.addEventListener('mouseleave', startAutoScroll);
+
+        // Inicia
+        startAutoScroll();
+    </script>
+
+</body>
+</html>
