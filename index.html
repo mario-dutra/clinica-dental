@@ -383,7 +383,7 @@
         border-right: 3px solid white;
     }
 
-.label-ad {
+   .label-ad {
     position: absolute;
     top: 5px;  /* era 15px, subiu 10px */
     left: 10px; /* era 15px, foi 5px pra esquerda */
@@ -695,6 +695,309 @@
             bottom: 50px !important;
         }
     }
+
+    /* === DEPOIMENTOS === */
+/* === DEPOIMENTOS === */
+#depoimentos {
+    padding: 80px 0;
+    background: var(--branco);
+}
+
+.carrossel-depo-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carrossel-depo-container {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    display: flex;
+    gap: 30px;
+    padding: 20px 60px;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+}
+
+.carrossel-depo-container::-webkit-scrollbar {
+    display: none;
+}
+
+.btn-carrossel-depo {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    background: var(--verde-metalico);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s;
+}
+
+.btn-carrossel-depo:hover {
+    background: var(--verde-escuro);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.btn-carrossel-depo.prev { left: 15px; }
+.btn-carrossel-depo.next { right: 15px; }
+
+.card-depoimento {
+    min-width: 360px;
+    max-width: 360px;
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    scroll-snap-align: center;
+    flex-shrink: 0;
+    transition: all 0.4s;
+    border: 2px solid var(--verde-metalico);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.card-depoimento:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(50, 205, 50, 0.2);
+}
+
+.depo-header {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    gap: 15px;
+}
+
+.foto-cliente {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--verde-metalico);
+    flex-shrink: 0;
+}
+
+.info-cliente {
+    flex: 1;
+    min-width: 0;
+}
+
+.info-cliente h5 {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 0 0 5px 0;
+    color: var(--cinza-texto);
+}
+
+.estrelas {
+    color: #FFD700;
+    font-size: 0.9rem;
+}
+
+.selo-google {
+    font-size: 1.2rem;
+    color: #4285F4;
+    flex-shrink: 0;
+}
+
+.texto-depo {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+    margin: 15px 0 20px 0;
+    font-style: italic;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.tag-tratamento {
+    background: rgba(50, 205, 50, 0.1);
+    color: var(--verde-escuro);
+    padding: 6px 14px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.cta-depoimentos {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* MOBILE DEPOIMENTOS */
+@media only screen and (max-width: 768px) {
+    #depoimentos {
+        padding: 60px 0;
+    }
+    
+    .card-depoimento {
+        min-width: 300px;
+        max-width: 300px;
+        padding: 25px;
+    }
+    
+    .carrossel-depo-container {
+        padding: 20px 50px;
+    }
+    
+    .btn-carrossel-depo {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .btn-carrossel-depo.prev { left: 5px; }
+    .btn-carrossel-depo.next { right: 5px; }
+    
+    .foto-cliente {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .texto-depo {
+        font-size: 0.9rem;
+    }
+}
+
+/* === SOBRE A DOUTORA === */
+#sobre-doutora {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.foto-doutora-wrapper {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.foto-doutora {
+    width: 100%;
+    height: 450px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(50, 205, 50, 0.25);
+    border: 5px solid white;
+}
+
+.foto-doutora img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.selo-cro {
+    position: absolute;
+    bottom: -15px;
+    right: 20px;
+    background: var(--verde-metalico);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 8px 25px rgba(50, 205, 50, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.conteudo-doutora h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--cinza-texto);
+    margin: 15px 0 8px;
+    line-height: 1.2;
+}
+
+.especialidade {
+    color: var(--verde-escuro);
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.bio-doutora {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.credenciais {
+    margin-bottom: 35px;
+}
+
+.item-credencial {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.item-credencial i {
+    background: rgba(50, 205, 50, 0.1);
+    color: var(--verde-escuro);
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.item-credencial strong {
+    display: block;
+    color: var(--cinza-texto);
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+
+.item-credencial span {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* MOBILE */
+@media only screen and (max-width: 768px) {
+    #sobre-doutora {
+        padding: 60px 0;
+    }
+    
+    .foto-doutora {
+        height: 350px;
+        margin-bottom: 30px;
+    }
+    
+    .conteudo-doutora h2 {
+        font-size: 1.6rem;
+    }
+    
+    .especialidade {
+        font-size: 1.1rem;
+    }
+    
+    .bio-doutora {
+        font-size: 1rem;
+    }
+    
+    .selo-cro {
+        right: 50%;
+        transform: translateX(50%);
+        bottom: -20px;
+    }
+}
 </style>
    
 </head>
@@ -831,11 +1134,11 @@
                     <div class="card-ad">
                         <div class="comparacao-ad">
                             <div class="foto-ad antes">
-                                <img src="./img/antes2.JPG" alt="Antes do tratamento">
+                                <img src="./img/antes2.jpg" alt="Antes do tratamento">
                                 <span class="label-ad">ANTES</span>
                             </div>
                             <div class="foto-ad depois">
-                                <img src="./img/depois2.JPG" alt="Depois do tratamento">
+                                <img src="./img/depois2.jpg" alt="Depois do tratamento">
                                 <span class="label-ad">DEPOIS</span>
                             </div>
                         </div>
@@ -852,11 +1155,11 @@
                     <div class="card-ad">
                         <div class="comparacao-ad">
                             <div class="foto-ad antes">
-                                <img src="./img/antes3.JPG" alt="Antes do tratamento">
+                                <img src="./img/antes3.jpg" alt="Antes do tratamento">
                                 <span class="label-ad">ANTES</span>
                             </div>
                             <div class="foto-ad depois">
-                                <img src="./img/depois3.JPG" alt="Depois do tratamento">
+                                <img src="./img/depois3.jpg" alt="Depois do tratamento">
                                 <span class="label-ad">DEPOIS</span>
                             </div>
                         </div>
@@ -873,11 +1176,11 @@
                     <div class="card-ad">
                         <div class="comparacao-ad">
                             <div class="foto-ad antes">
-                                <img src="./img/antes4.JPG" alt="Antes do tratamento">
+                                <img src="./img/antes4.jpg" alt="Antes do tratamento">
                                 <span class="label-ad">ANTES</span>
                             </div>
                             <div class="foto-ad depois">
-                                <img src="./img/depois4.JPG" alt="Depois do tratamento">
+                                <img src="./img/depois4.jpg" alt="Depois do tratamento">
                                 <span class="label-ad">DEPOIS</span>
                             </div>
                         </div>
@@ -898,6 +1201,194 @@
         </div>
     </section>
 
+
+    
+
+     <!-- SEÇÃO DEPOIMENTOS -->
+<section id="depoimentos">
+    <div class="container">
+        <div class="titulo-secao">
+            <span class="tag-secao">O que dizem</span>
+            <h2>Pacientes que recuperaram o sorriso</h2>
+            <p>Veja quem já passou por aqui e aprovou nosso atendimento</p>
+        </div>
+
+        <div class="carrossel-depo-wrapper">
+            <button class="btn-carrossel-depo prev" id="btnPrevDepo">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <div class="carrossel-depo-container" id="carrosselDepoimentos">
+                <!-- DEPOIMENTO 1 -->
+                <div class="card-depoimento">
+                    <div class="depo-header">
+                        <img src="https://i.pravatar.cc/150?img=5" alt="Maria Silva" class="foto-cliente">
+                        <div class="info-cliente">
+                            <h5>Maria Silva</h5>
+                            <div class="estrelas">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <i class="fab fa-google selo-google"></i>
+                    </div>
+                    <p class="texto-depo">
+                        "Sempre tive vergonha de sorrir. Fiz as lentes de contato e mudou minha vida! 
+                        Atendimento impecável, sem dor nenhuma. Recomendo de olhos fechados."
+                    </p>
+                    <span class="tag-tratamento">Lentes de Contato Dental</span>
+                </div>
+
+                <!-- DEPOIMENTO 2 -->
+                <div class="card-depoimento">
+                    <div class="depo-header">
+                        <img src="https://i.pravatar.cc/150?img=32" alt="Joana Santos" class="foto-cliente">
+                        <div class="info-cliente">
+                            <h5>Joana Santos</h5>
+                            <div class="estrelas">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <i class="fab fa-google selo-google"></i>
+                    </div>
+                    <p class="texto-depo">
+                        "Perdi um dente num acidente e achei que nunca mais ia ficar igual. 
+                        O implante ficou perfeito, ninguém percebe. Equipe muito profissional!"
+                    </p>
+                    <span class="tag-tratamento">Implante Dentário</span>
+                </div>
+
+                <!-- DEPOIMENTO 3 -->
+                <div class="card-depoimento">
+                    <div class="depo-header">
+                        <img src="https://i.pravatar.cc/150?img=47" alt="Ana Paula Costa" class="foto-cliente">
+                        <div class="info-cliente">
+                            <h5>Ana Paula Costa</h5>
+                            <div class="estrelas">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <i class="fab fa-google selo-google"></i>
+                    </div>
+                    <p class="texto-depo">
+                        "Fiz clareamento a laser e amei o resultado! Em 1 hora saí com os dentes 
+                        8 tons mais brancos. Atendimento humanizado, me senti em casa."
+                    </p>
+                    <span class="tag-tratamento">Clareamento a Laser</span>
+                </div>
+
+                <!-- DEPOIMENTO 4 -->
+                <div class="card-depoimento">
+                    <div class="depo-header">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Carlos Mendes" class="foto-cliente">
+                        <div class="info-cliente">
+                            <h5>Carlos Mendes</h5>
+                            <div class="estrelas">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <i class="fab fa-google selo-google"></i>
+                    </div>
+                    <p class="texto-depo">
+                        "Tinha trauma de dentista desde criança. Aqui foi diferente, explicaram tudo, 
+                        sem dor. Fiz canal e nem senti. Virei paciente fiel."
+                    </p>
+                    <span class="tag-tratamento">Tratamento de Canal</span>
+                </div>
+            </div>
+
+            <button class="btn-carrossel-depo next" id="btnNextDepo">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <div class="cta-depoimentos">
+            <a href="https://wa.me/5500000000000?text=Olá%20vi%20os%20depoimentos%20e%20quero%20agendar" class="btn btn-whats-hero">
+                <i class="fab fa-whatsapp"></i> Quero agendar minha avaliação
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- SEÇÃO SOBRE A DOUTORA -->
+<section id="sobre-doutora">
+    <div class="container">
+        <div class="row align-items-center">
+          <!-- FOTO DOUTORA -->
+<div class="col-lg-5 mb-4 mb-lg-0">
+    <div class="foto-doutora-wrapper">
+        <div class="foto-doutora">
+            <img src="./img/foto-doutora.jpg" alt="Dra. Raimunda Nonata das Chagas de Souza">
+        </div>
+        <div class="selo-cro">
+            <i class="fas fa-certificate"></i>
+            <span>CRO-CE 12345</span>
+        </div>
+    </div>
+</div>
+
+            <!-- TEXTO -->
+            <div class="col-lg-7">
+                <div class="conteudo-doutora">
+                    <span class="tag-secao">Conheça quem cuida de você</span>
+                    <h2>Dra. Raimunda Nonata das Chagas de Souza</h2>
+                    <h4 class="especialidade">Especialista em Ortodontia</h4>
+                    
+                    <p class="bio-doutora">
+                        Com mais de 15 anos transformando sorrisos, a Dra. Raimunda une técnica apurada 
+                        e atendimento humanizado. Formada pela UFC e com especialização em Ortodontia, 
+                        acredita que cada paciente merece um tratamento único, sem dor e com resultado 
+                        que devolve a autoestima.
+                    </p>
+
+                    <div class="credenciais">
+                        <div class="item-credencial">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div>
+                                <strong>Formação</strong>
+                                <span>Universidade Federal do Ceará - UFC</span>
+                            </div>
+                        </div>
+                        <div class="item-credencial">
+                            <i class="fas fa-award"></i>
+                            <div>
+                                <strong>Especialização</strong>
+                                <span>Ortodontia e Ortopedia Facial</span>
+                            </div>
+                        <div class="item-credencial">
+                            <i class="fas fa-heart"></i>
+                            <div>
+                                <strong>Missão</strong>
+                                <span>Devolver sorrisos sem trauma e sem dor</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/5500000000000?text=Olá%20Dra.%20Raimunda%20vi%20seu%20perfil%20e%20quero%20agendar" class="btn btn-whats-hero">
+                        <i class="fab fa-whatsapp"></i> Agendar com a Dra. Raimunda
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
     <!-- SEÇÃO CÂMERA -->
     <section id="camera">
         <div class="container">
@@ -909,6 +1400,8 @@
             </a>
         </div>
     </section>
+
+
 
     <!-- FOOTER -->
     <section id="footer">
@@ -1006,6 +1499,50 @@
         carrosselAD.addEventListener('mouseenter', () => clearInterval(autoScrollAD));
         carrosselAD.addEventListener('mouseleave', startAutoScrollAD);
         startAutoScrollAD();
+
+
+        // CARROSSEL DEPOIMENTOS
+const carrosselDepo = document.getElementById('carrosselDepoimentos');
+const btnPrevDepo = document.getElementById('btnPrevDepo');
+const btnNextDepo = document.getElementById('btnNextDepo');
+let autoScrollDepo;
+
+function scrollCarrosselDepo(direction) {
+    const cardWidth = carrosselDepo.querySelector('.card-depoimento').offsetWidth + 30;
+    carrosselDepo.scrollBy({
+        left: direction * cardWidth,
+        behavior: 'smooth'
+    });
+}
+
+btnPrevDepo.addEventListener('click', () => {
+    scrollCarrosselDepo(-1);
+    resetAutoScrollDepo();
+});
+
+btnNextDepo.addEventListener('click', () => {
+    scrollCarrosselDepo(1);
+    resetAutoScrollDepo();
+});
+
+function startAutoScrollDepo() {
+    autoScrollDepo = setInterval(() => {
+        if (carrosselDepo.scrollLeft + carrosselDepo.offsetWidth >= carrosselDepo.scrollWidth - 10) {
+            carrosselDepo.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+            scrollCarrosselDepo(1);
+        }
+    }, 5000);
+}
+
+function resetAutoScrollDepo() {
+    clearInterval(autoScrollDepo);
+    startAutoScrollDepo();
+}
+
+carrosselDepo.addEventListener('mouseenter', () => clearInterval(autoScrollDepo));
+carrosselDepo.addEventListener('mouseleave', startAutoScrollDepo);
+startAutoScrollDepo();
     </script>
 
 </body>
