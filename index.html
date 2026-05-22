@@ -11,571 +11,692 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 
     <style>
-        :root {
-            --verde-metalico: #32CD32;
-            --verde-escuro: #56C596;
-            --branco: #FFFFFF;
-            --cinza-texto: #2C3E50;
-        }
+    :root {
+        --verde-metalico: #32CD32;
+        --verde-escuro: #56C596;
+        --branco: #FFFFFF;
+        --cinza-texto: #2C3E50;
+    }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: var(--cinza-texto);
-            overflow-x: hidden;
-        }
+    body {
+        font-family: 'Poppins', sans-serif;
+        color: var(--cinza-texto);
+        overflow-x: hidden;
+    }
 
-        /* === HEADER HERO === */
+    /* === HEADER HERO === */
+    #header {
+        background: var(--verde-metalico);
+        color: var(--branco);
+        padding: 60px 0 80px;
+        position: relative;
+        min-height: 500px;
+    }
+
+    /* DOUTORA DENTRO DO CÍRCULO */
+   .doutora-wrapper {
+        position: absolute;
+        right: 5%;
+        bottom: 30px;
+        width: 380px;
+        height: 380px;
+        z-index: 2;
+        animation: slideLeft 1.2s ease-out 0.3s forwards;
+        opacity: 0;
+    }
+
+   .doutora-circulo {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 6px solid var(--branco);
+        box-shadow: 0 10px 40px rgba(0,0,0,0.4),
+                    0 0 0 3px rgba(255,255,255,0.3);
+        position: relative;
+    }
+
+   .doutora-circulo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+    }
+
+    @keyframes slideLeft {
+        from {
+            transform: translateX(100px);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+  .logo-topo {
+    max-width: 180px;
+    height: auto;
+    display: block;
+    margin: 0 0 30px 0;
+    position: relative;
+    z-index: 3;
+    filter: drop-shadow(0 3px 10px rgba(0,0,0,0.25));
+    animation: fadeInUp 1s ease-out 0.2s forwards;
+    opacity: 0;
+}
+
+.hero-conteudo {
+    position: relative;
+    z-index: 3;
+    text-align: left;
+}
+
+.titulo-animado {
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--branco);
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    animation: slideRight 1.2s ease-out forwards;
+    opacity: 0;
+    max-width: 800px;
+    margin: 0;
+}
+    @keyframes slideRight {
+        from {
+            transform: translateX(-100px);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+   .btn-whats-hero {
+        background: #25D366;
+        color: white;
+        padding: 14px 32px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        margin-top: 25px;
+        animation: fadeInUp 1s ease-out 0.5s forwards;
+        opacity: 0;
+        border: 2px solid #fff;
+        display: inline-block;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            transform: translateY(30px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+   .btn-whats-hero:hover {
+        background: #1fa855;
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+
+    /* === TRATAMENTOS === */
+    #tratamentos {
+        padding: 0 0 80px;
+        background: var(--branco);
+        position: relative;
+    }
+
+   .onda-topo-tratamentos {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        margin-bottom: 50px;
+    }
+
+   .onda-topo-tratamentos svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 100px;
+    }
+
+   .onda-topo-tratamentos .shape-fill {
+        fill: var(--verde-metalico);
+    }
+
+    #tratamentos h2 {
+        text-align: center;
+        font-weight: 700;
+        color: var(--verde-escuro);
+        margin-bottom: 50px;
+        font-size: 2rem;
+    }
+
+   .carrossel-wrapper {
+        position: relative;
+        width: 100%;
+    }
+
+   .carrossel-container {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        display: flex;
+        gap: 30px;
+        padding: 20px 60px;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+
+   .carrossel-container::-webkit-scrollbar {
+        display: none;
+    }
+
+   .btn-carrossel {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: var(--verde-metalico);
+        color: white;
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        font-size: 1.3rem;
+        cursor: pointer;
+        z-index: 10;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        transition: all 0.3s;
+    }
+
+   .btn-carrossel:hover {
+        background: var(--verde-escuro);
+        transform: translateY(-50%) scale(1.1);
+    }
+
+   .btn-carrossel.prev { left: 15px; }
+   .btn-carrossel.next { right: 15px; }
+
+   .card-tratamento {
+        min-width: 280px;
+        text-align: center;
+        scroll-snap-align: center;
+        padding: 20px;
+        flex-shrink: 0;
+    }
+
+   .img-tratamento {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 auto 20px;
+        border: 5px solid var(--verde-metalico);
+        box-shadow: 0 8px 25px rgba(50, 205, 50, 0.3);
+        transition: all 0.3s;
+    }
+
+   .card-tratamento:hover .img-tratamento {
+        transform: scale(1.05);
+        box-shadow: 0 12px 35px rgba(50, 205, 50, 0.5);
+    }
+
+   .card-tratamento h5 {
+        font-weight: 600;
+        color: var(--cinza-texto);
+        font-size: 1.2rem;
+    }
+
+    /* === ANTES E DEPOIS === */
+    #antes-depois {
+        padding: 80px 0;
+        background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        position: relative;
+    }
+
+   .titulo-secao {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+   .tag-secao {
+        background: var(--verde-metalico);
+        color: white;
+        padding: 6px 18px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+   .titulo-secao h2 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: var(--verde-escuro);
+        margin: 20px 0 15px;
+    }
+
+   .titulo-secao p {
+        font-size: 1.1rem;
+        color: #666;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+   .carrossel-ad-wrapper {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+   .carrossel-ad-container {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        display: flex;
+        gap: 30px;
+        padding: 20px 60px;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+
+   .carrossel-ad-container::-webkit-scrollbar {
+        display: none;
+    }
+
+   .btn-carrossel-ad {
+        position: absolute;
+        top: 40%;
+        transform: translateY(-50%);
+        background: var(--verde-metalico);
+        color: white;
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        font-size: 1.3rem;
+        cursor: pointer;
+        z-index: 10;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        transition: all 0.3s;
+    }
+
+   .btn-carrossel-ad:hover {
+        background: var(--verde-escuro);
+        transform: translateY(-50%) scale(1.1);
+    }
+
+   .btn-carrossel-ad.prev { left: 15px; }
+   .btn-carrossel-ad.next { right: 15px; }
+
+   .card-ad {
+        min-width: 380px;
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        scroll-snap-align: center;
+        flex-shrink: 0;
+        transition: all 0.4s;
+    }
+
+   .card-ad:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px rgba(50, 205, 50, 0.3);
+    }
+
+   .comparacao-ad {
+        display: flex;
+        position: relative;
+        height: 280px;
+    }
+
+   .foto-ad {
+        width: 50%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+   .foto-ad img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s;
+    }
+
+   .card-ad:hover .foto-ad img {
+        transform: scale(1.05);
+    }
+
+   .foto-ad.antes {
+        border-right: 3px solid white;
+    }
+
+   .label-ad {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: rgba(0,0,0,0.7);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        backdrop-filter: blur(10px);
+    }
+
+   .foto-ad.depois .label-ad {
+        background: var(--verde-metalico);
+    }
+
+   .info-ad {
+        padding: 25px 25px 15px;
+        text-align: center;
+    }
+
+   .info-ad h5 {
+        font-weight: 700;
+        font-size: 1.3rem;
+        color: var(--cinza-texto);
+        margin-bottom: 10px;
+    }
+
+   .info-ad p {
+        color: #666;
+        font-size: 0.95rem;
+        margin: 0;
+    }
+
+   .info-ad i {
+        color: var(--verde-metalico);
+        margin-right: 5px;
+    }
+
+   .btn-ad-whats {
+        display: block;
+        background: #25D366;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        font-weight: 600;
+        font-size: 1.05rem;
+        transition: all 0.3s;
+        text-decoration: none;
+        border-top: 3px solid #1fa855;
+    }
+
+   .btn-ad-whats:hover {
+        background: #1fa855;
+        color: white;
+        letter-spacing: 0.5px;
+    }
+
+    /* === CÂMERA === */
+    #camera {
+        background: linear-gradient(135deg, #F1F8E9 0%, var(--branco) 100%);
+        padding: 80px 0;
+        text-align: center;
+    }
+
+    #camera h3 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--verde-escuro);
+        margin-bottom: 20px;
+    }
+
+    #camera p {
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto 30px;
+        color: var(--cinza-texto);
+    }
+
+    /* === FOOTER === */
+    #footer {
+        background: var(--verde-escuro);
+        color: var(--branco);
+        padding: 40px 0 20px;
+        text-align: center;
+    }
+
+    /* === WHATS FLUTUANTE === */
+   .botao-wats-flutuante {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        z-index: 999;
+        animation: pulse 2s infinite;
+    }
+
+   .botao-wats-flutuante img {
+        width: 70px;
+        border: 4px solid #fff;
+        border-radius: 50%;
+        background: #fff;
+        padding: 4px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.4),
+                    0 0 0 4px rgba(37, 211, 102, 0.3),
+                    0 0 20px rgba(37, 211, 102, 0.6);
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+
+    /* === MOBILE === */
+  @media only screen and (max-width: 768px) {
+    #header {
+        min-height: auto;
+        padding: 40px 0 60px;
+    }
+
+   .titulo-animado {
+        font-size: 1.6rem;
+        margin-top: 20px;
+        text-align: center; /* centraliza o texto */
+    }
+
+   .doutora-wrapper {
+        position: relative;
+        width: 280px;
+        height: 280px;
+        right: auto;
+        bottom: auto;
+        margin: 0 auto 30px;
+        opacity: 0;
+        animation: fadeInUp 1s ease-out 0.3s forwards;
+    }
+
+   .logo-topo { 
+        max-width: 150px; 
+        margin: 0 auto 20px; /* centraliza a logo */
+    }
+
+   .hero-conteudo {
+        text-align: center; /* centraliza tudo */
+        padding: 0 20px;
+   }
+
+   .btn-whats-hero {
+        width: 90%;
+        max-width: 300px;
+        padding: 16px 20px;
+        text-align: center;
+        margin: 25px auto 0; /* centraliza o botão */
+        display: block;
+    }
+
+   .img-tratamento { width: 140px; height: 140px; }
+   .card-tratamento { min-width: 220px; }
+    #tratamentos h2 { font-size: 1.5rem; padding: 0 15px; }
+   .onda-topo-tratamentos svg { height: 60px; }
+   .onda-topo-tratamentos { margin-bottom: 30px; }
+   .carrossel-container { padding: 20px 50px; }
+   .btn-carrossel { width: 40px; height: 40px; font-size: 1rem; }
+   .btn-carrossel.prev { left: 5px; }
+   .btn-carrossel.next { right: 5px; }
+   .botao-wats-flutuante img { width: 60px; }
+
+    #antes-depois {
+        padding: 60px 0;
+    }
+
+   .titulo-secao h2 {
+        font-size: 1.6rem;
+        padding: 0 20px;
+    }
+
+   .titulo-secao p {
+        font-size: 1rem;
+        padding: 0 20px;
+    }
+
+   .card-ad {
+        min-width: 300px;
+    }
+
+   .comparacao-ad {
+        height: 220px;
+    }
+
+   .carrossel-ad-container {
+        padding: 20px 50px;
+    }
+
+   .btn-carrossel-ad {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+   .btn-carrossel-ad.prev { left: 5px; }
+   .btn-carrossel-ad.next { right: 5px; }
+}
+    /* === CORREÇÃO TABLET - 768px até 1024px === */
+    @media (min-width: 768px) and (max-width: 1024px) {
+        
         #header {
-            background: var(--verde-metalico);
-            color: var(--branco);
-            padding: 60px 0 80px;
-            position: relative;
-            min-height: 500px;
+            min-height: auto;
+            padding: 50px 0 70px;
         }
 
-        /* DOUTORA DENTRO DO CÍRCULO */
-       .doutora-wrapper {
-            position: absolute;
-            right: 5%;
-            bottom: 30px;
-            width: 380px;
-            height: 380px;
-            z-index: 2;
-            animation: slideLeft 1.2s ease-out 0.3s forwards;
-            opacity: 0;
+        .hero-conteudo {
+            padding: 0 20px;
+            text-align: left;
         }
 
-       .doutora-circulo {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 6px solid var(--branco);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.4),
-                        0 0 0 3px rgba(255,255,255,0.3);
-            position: relative;
-        }
-
-       .doutora-circulo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-            display: block;
-        }
-
-        @keyframes slideLeft {
-            from {
-                transform: translateX(100px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-       .logo-topo {
-            max-width: 180px;
-            height: auto;
-            display: block;
-            margin: 0 auto 30px;
-            position: relative;
-            z-index: 3;
-            filter: drop-shadow(0 3px 10px rgba(0,0,0,0.25));
-            animation: fadeInUp 1s ease-out 0.2s forwards;
-            opacity: 0;
-        }
-
-        /* CONTEÚDO CENTRALIZADO */
-       .hero-conteudo {
-            position: relative;
-            z-index: 3;
-            text-align: center;
-        }
-
-       .titulo-animado {
-            font-size: 2.4rem;
-            font-weight: 700;
-            line-height: 1.3;
-            color: var(--branco);
-            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-            animation: slideRight 1.2s ease-out forwards;
-            opacity: 0;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        @keyframes slideRight {
-            from {
-                transform: translateX(-100px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-       .btn-whats-hero {
-            background: #25D366;
-            color: white;
-            padding: 14px 32px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            margin-top: 25px;
-            animation: fadeInUp 1s ease-out 0.5s forwards;
-            opacity: 0;
-            border: 2px solid #fff;
-            display: inline-block;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                transform: translateY(30px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-       .btn-whats-hero:hover {
-            background: #1fa855;
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-        }
-
-        /* === TRATAMENTOS === */
-        #tratamentos {
-            padding: 0 0 80px;
-            background: var(--branco);
-            position: relative;
-        }
-
-       .onda-topo-tratamentos {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-            margin-bottom: 50px;
-        }
-
-       .onda-topo-tratamentos svg {
-            position: relative;
-            display: block;
-            width: calc(100% + 1.3px);
-            height: 100px;
-        }
-
-       .onda-topo-tratamentos .shape-fill {
-            fill: var(--verde-metalico);
-        }
-
-        #tratamentos h2 {
-            text-align: center;
-            font-weight: 700;
-            color: var(--verde-escuro);
-            margin-bottom: 50px;
+        .titulo-animado {
             font-size: 2rem;
-        }
-
-       .carrossel-wrapper {
-            position: relative;
-            width: 100%;
-        }
-
-       .carrossel-container {
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            display: flex;
-            gap: 30px;
-            padding: 20px 60px;
-            -webkit-overflow-scrolling: touch;
-            scroll-behavior: smooth;
-        }
-
-       .carrossel-container::-webkit-scrollbar {
-            display: none;
-        }
-
-       .btn-carrossel {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--verde-metalico);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 1.3rem;
-            cursor: pointer;
-            z-index: 10;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: all 0.3s;
-        }
-
-       .btn-carrossel:hover {
-            background: var(--verde-escuro);
-            transform: translateY(-50%) scale(1.1);
-        }
-
-       .btn-carrossel.prev { left: 15px; }
-       .btn-carrossel.next { right: 15px; }
-
-       .card-tratamento {
-            min-width: 280px;
-            text-align: center;
-            scroll-snap-align: center;
-            padding: 20px;
-            flex-shrink: 0;
-        }
-
-       .img-tratamento {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 20px;
-            border: 5px solid var(--verde-metalico);
-            box-shadow: 0 8px 25px rgba(50, 205, 50, 0.3);
-            transition: all 0.3s;
-        }
-
-       .card-tratamento:hover .img-tratamento {
-            transform: scale(1.05);
-            box-shadow: 0 12px 35px rgba(50, 205, 50, 0.5);
-        }
-
-       .card-tratamento h5 {
-            font-weight: 600;
-            color: var(--cinza-texto);
-            font-size: 1.2rem;
-        }
-
-        /* === ANTES E DEPOIS === */
-        #antes-depois {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            position: relative;
-        }
-
-       .titulo-secao {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-       .tag-secao {
-            background: var(--verde-metalico);
-            color: white;
-            padding: 6px 18px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-       .titulo-secao h2 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--verde-escuro);
-            margin: 20px 0 15px;
-        }
-
-       .titulo-secao p {
-            font-size: 1.1rem;
-            color: #666;
+            line-height: 1.3;
             max-width: 600px;
-            margin: 0 auto;
+            margin: 0 0 25px 0;
+            text-align: left;
         }
 
-       .carrossel-ad-wrapper {
-            position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
+        .logo-topo {
+            max-width: 160px;
+            margin: 0 0 25px 0;
         }
 
-       .carrossel-ad-container {
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            display: flex;
-            gap: 30px;
-            padding: 20px 60px;
-            -webkit-overflow-scrolling: touch;
-            scroll-behavior: smooth;
+        /* DOUTORA NO TABLET - CENTRALIZA E DIMINUI */
+        .doutora-wrapper {
+            position: relative !important;
+            right: auto !important;
+            bottom: auto !important;
+            width: 320px !important;
+            height: 320px !important;
+            margin: 30px auto 0;
+            opacity: 1 !important;
+            animation: none !important;
         }
 
-       .carrossel-ad-container::-webkit-scrollbar {
-            display: none;
+        .doutora-wrapper.d-none.d-md-block {
+            display: block !important;
         }
 
-       .btn-carrossel-ad {
-            position: absolute;
-            top: 40%;
-            transform: translateY(-50%);
-            background: var(--verde-metalico);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 1.3rem;
-            cursor: pointer;
-            z-index: 10;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: all 0.3s;
+        .doutora-circulo {
+            border: 5px solid var(--branco);
         }
 
-       .btn-carrossel-ad:hover {
-            background: var(--verde-escuro);
-            transform: translateY(-50%) scale(1.1);
+        /* ESCONDE A DOUTORA MOBILE NO TABLET */
+        .col-12.d-md-none {
+            display: none !important;
         }
 
-       .btn-carrossel-ad.prev { left: 15px; }
-       .btn-carrossel-ad.next { right: 15px; }
-
-       .card-ad {
-            min-width: 380px;
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            scroll-snap-align: center;
-            flex-shrink: 0;
-            transition: all 0.4s;
+        /* TRATAMENTOS TABLET */
+        .cards-tratamentos {
+            padding: 20px 40px;
         }
 
-       .card-ad:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(50, 205, 50, 0.3);
+        .btn-carrossel.prev { left: 10px; }
+        .btn-carrossel.next { right: 10px; }
+
+        /* ANTES E DEPOIS TABLET */
+        .carrossel-ad-container {
+            padding: 20px 40px;
         }
 
-       .comparacao-ad {
-            display: flex;
-            position: relative;
-            height: 280px;
+        .btn-carrossel-ad.prev { left: 10px; }
+        .btn-carrossel-ad.next { right: 10px; }
+
+        .card-ad {
+            min-width: 350px;
+        }
+    }
+
+    /* === CORREÇÃO DESKTOP MENOR - 1025px até 1366px === */
+    @media (min-width: 1025px) and (max-width: 1366px) {
+        
+        #header {
+            padding: 60px 0 90px;
         }
 
-       .foto-ad {
-            width: 50%;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
+        .hero-conteudo {
+            max-width: 55%;
+            text-align: left;
+            padding-left: 5%;
         }
 
-       .foto-ad img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s;
+        .titulo-animado {
+            font-size: 2.1rem;
+            line-height: 1.3;
+            text-align: left;
+            margin: 0 0 25px 0;
         }
 
-       .card-ad:hover .foto-ad img {
-            transform: scale(1.05);
+        .logo-topo {
+            margin: 0 0 25px 0;
+            max-width: 160px;
         }
 
-       .foto-ad.antes {
-            border-right: 3px solid white;
-        }
-
-       .label-ad {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: rgba(0,0,0,0.7);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            backdrop-filter: blur(10px);
-        }
-
-       .foto-ad.depois .label-ad {
-            background: var(--verde-metalico);
-        }
-
-       .info-ad {
-            padding: 25px 25px 15px;
-            text-align: center;
-        }
-
-       .info-ad h5 {
-            font-weight: 700;
-            font-size: 1.3rem;
-            color: var(--cinza-texto);
-            margin-bottom: 10px;
-        }
-
-       .info-ad p {
-            color: #666;
-            font-size: 0.95rem;
+        .btn-whats-hero {
             margin: 0;
         }
 
-       .info-ad i {
-            color: var(--verde-metalico);
-            margin-right: 5px;
+        /* DOUTORA MENOR E MAIS PRA CIMA */
+        .doutora-wrapper {
+            width: 320px !important;
+            height: 320px !important;
+            right: 4% !important;
+            bottom: 50px !important;
         }
-
-       .btn-ad-whats {
-            display: block;
-            background: #25D366;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            font-weight: 600;
-            font-size: 1.05rem;
-            transition: all 0.3s;
-            text-decoration: none;
-            border-top: 3px solid #1fa855;
-        }
-
-       .btn-ad-whats:hover {
-            background: #1fa855;
-            color: white;
-            letter-spacing: 0.5px;
-        }
-
-        /* === CÂMERA === */
-        #camera {
-            background: linear-gradient(135deg, #F1F8E9 0%, var(--branco) 100%);
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        #camera h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--verde-escuro);
-            margin-bottom: 20px;
-        }
-
-        #camera p {
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto 30px;
-            color: var(--cinza-texto);
-        }
-
-        /* === FOOTER === */
-        #footer {
-            background: var(--verde-escuro);
-            color: var(--branco);
-            padding: 40px 0 20px;
-            text-align: center;
-        }
-
-        /* === WHATS FLUTUANTE === */
-       .botao-wats-flutuante {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            z-index: 999;
-            animation: pulse 2s infinite;
-        }
-
-       .botao-wats-flutuante img {
-            width: 70px;
-            border: 4px solid #fff;
-            border-radius: 50%;
-            background: #fff;
-            padding: 4px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4),
-                        0 0 0 4px rgba(37, 211, 102, 0.3),
-                        0 0 20px rgba(37, 211, 102, 0.6);
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-
-        /* === MOBILE === */
-        @media only screen and (max-width: 768px) {
-            #header {
-                min-height: auto;
-                padding: 40px 0 60px;
-            }
-
-           .titulo-animado {
-                font-size: 1.6rem;
-                margin-top: 20px;
-            }
-
-           .doutora-wrapper {
-                position: relative;
-                width: 280px;
-                height: 280px;
-                right: auto;
-                bottom: auto;
-                margin: 0 auto 30px;
-                opacity: 0;
-                animation: fadeInUp 1s ease-out 0.3s forwards;
-            }
-
-           .logo-topo { max-width: 150px; margin-bottom: 20px; }
-
-           .btn-whats-hero {
-                width: 90%;
-                padding: 16px 20px;
-            }
-
-           .img-tratamento { width: 140px; height: 140px; }
-           .card-tratamento { min-width: 220px; }
-            #tratamentos h2 { font-size: 1.5rem; padding: 0 15px; }
-           .onda-topo-tratamentos svg { height: 60px; }
-           .onda-topo-tratamentos { margin-bottom: 30px; }
-           .carrossel-container { padding: 20px 50px; }
-           .btn-carrossel { width: 40px; height: 40px; font-size: 1rem; }
-           .btn-carrossel.prev { left: 5px; }
-           .btn-carrossel.next { right: 5px; }
-           .botao-wats-flutuante img { width: 60px; }
-
-            #antes-depois {
-                padding: 60px 0;
-            }
-
-           .titulo-secao h2 {
-                font-size: 1.6rem;
-                padding: 0 20px;
-            }
-
-           .titulo-secao p {
-                font-size: 1rem;
-                padding: 0 20px;
-            }
-
-           .card-ad {
-                min-width: 300px;
-            }
-
-           .comparacao-ad {
-                height: 220px;
-            }
-
-           .carrossel-ad-container {
-                padding: 20px 50px;
-            }
-
-           .btn-carrossel-ad {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-
-           .btn-carrossel-ad.prev { left: 5px; }
-           .btn-carrossel-ad.next { right: 5px; }
-        }
-    </style>
+    }
+</style>
+   
 </head>
 <body>
 
@@ -586,39 +707,39 @@
         </a>
     </div>
 
-    <!-- HEADER HERO -->
-    <section id="header">
-        <div class="container">
-            <img src="./img/logo-dente.png" alt="Logo Clínica Dental" class="logo-topo">
-
-            <div class="row">
-                <div class="col-12 d-md-none">
-                    <div class="doutora-wrapper">
-                        <div class="doutora-circulo">
-                            <img src="./img/foto-doutora.jpg" alt="Dentista">
-                        </div>
+  
+   <!-- HEADER HERO -->
+<section id="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 d-md-none">
+                <div class="doutora-wrapper">
+                    <div class="doutora-circulo">
+                        <img src="./img/foto-doutora.jpg" alt="Dentista">
                     </div>
                 </div>
+            </div>
 
-                <div class="col-12 hero-conteudo">
-                    <h1 class="titulo-animado">
-                        Procurando Dentista para os mais diversos<br>tratamentos? Confie nos melhores
-                    </h1>
+            <div class="col-12 hero-conteudo">
+                <img src="./img/logo-dente.png" alt="Logo Clínica Dental" class="logo-topo">
+                <h1 class="titulo-animado">
+                    Procurando Dentista para os mais diversos<br>tratamentos? Confie nos melhores
+                </h1>
 
-                    <a href="https://wa.me/5500000000000?text=Olá%20quero%20falar%20com%20atendente" class="btn btn-whats-hero">
-                        <i class="fab fa-whatsapp"></i> Falar com atendente
-                    </a>
-                </div>
+                <a href="https://wa.me/5500000000000?text=Olá%20quero%20falar%20com%20atendente" class="btn btn-whats-hero">
+                    <i class="fab fa-whatsapp"></i> Falar com atendente
+                </a>
             </div>
         </div>
+    </div>
 
-        <!-- DOUTORA NO CÍRCULO - DESKTOP -->
-        <div class="doutora-wrapper d-none d-md-block">
-            <div class="doutora-circulo">
-                <img src="./img/foto-doutora.jpg" alt="Dentista">
-            </div>
+    <!-- DOUTORA NO CÍRCULO - DESKTOP -->
+    <div class="doutora-wrapper d-none d-md-block">
+        <div class="doutora-circulo">
+            <img src="./img/foto-doutora.jpg" alt="Dentista">
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- SEÇÃO TRATAMENTOS -->
     <section id="tratamentos">
@@ -710,11 +831,11 @@
                     <div class="card-ad">
                         <div class="comparacao-ad">
                             <div class="foto-ad antes">
-                                <img src="./img/antes2.JPG" alt="Antes do tratamento">
+                                <img src="./img/antes2.jpg" alt="Antes do tratamento">
                                 <span class="label-ad">ANTES</span>
                             </div>
                             <div class="foto-ad depois">
-                                <img src="./img/depois2.JPG" alt="Depois do tratamento">
+                                <img src="./img/depois2.jpg" alt="Depois do tratamento">
                                 <span class="label-ad">DEPOIS</span>
                             </div>
                         </div>
@@ -731,11 +852,11 @@
                     <div class="card-ad">
                         <div class="comparacao-ad">
                             <div class="foto-ad antes">
-                                <img src="./img/antes3.JPG" alt="Antes do tratamento">
+                                <img src="./img/antes3.jpg" alt="Antes do tratamento">
                                 <span class="label-ad">ANTES</span>
                             </div>
                             <div class="foto-ad depois">
-                                <img src="./img/depois3.JPG" alt="Depois do tratamento">
+                                <img src="./img/depois3.jpg" alt="Depois do tratamento">
                                 <span class="label-ad">DEPOIS</span>
                             </div>
                         </div>
@@ -752,11 +873,11 @@
                     <div class="card-ad">
                         <div class="comparacao-ad">
                             <div class="foto-ad antes">
-                                <img src="./img/antes4.JPG" alt="Antes do tratamento">
+                                <img src="./img/antes4.jpg" alt="Antes do tratamento">
                                 <span class="label-ad">ANTES</span>
                             </div>
                             <div class="foto-ad depois">
-                                <img src="./img/depois4.JPG" alt="Depois do tratamento">
+                                <img src="./img/depois4.jpg" alt="Depois do tratamento">
                                 <span class="label-ad">DEPOIS</span>
                             </div>
                         </div>
