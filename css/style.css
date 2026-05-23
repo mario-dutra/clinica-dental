@@ -950,31 +950,24 @@ body {
 
 /* === WHATS FLUTUANTE === */
 .botao-wats-flutuante {
-    position: fixed !important;
-    bottom: 25px !important;
-    right: 25px !important;
-    z-index: 999 !important;
-    width: 60px !important;
-    height: 60px !important;
-    background: #25D366 !important;
-    border-radius: 50% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
-    animation: pulse 2s infinite !important;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 999;
+    animation: pulse 2s infinite;
+    transition: transform 0.3s ease;
 }
 
-.botao-wats-flutuante img {
-    width: 35px !important;
-    height: 35px !important;
-    border: none !important;
-    background: transparent !important;
-    padding: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    mix-blend-mode: multiply !important; /* ISSO SOME COM O BRANCO */
-    filter: brightness(0) invert(1) !important; /* DEIXA O ÍCONE BRANCO */
+.botao-wats-flutuante:hover {
+    transform: scale(1.1);
 }
 
 .botao-wats-flutuante:hover {
