@@ -949,6 +949,7 @@ body {
 }
 
 /* === WHATS FLUTUANTE === */
+
 .botao-wats-flutuante {
     position: fixed;
     bottom: 25px;
@@ -969,7 +970,6 @@ body {
 .botao-wats-flutuante:hover {
     transform: scale(1.1);
 }
-
 
 
 
